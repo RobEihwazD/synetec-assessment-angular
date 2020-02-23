@@ -1,6 +1,9 @@
 import { TestBed, async } from '@angular/core/testing';
 import { AppComponent } from './app.component';
 import { CitiesListComponent } from './components/cities/cities-list.component';
+import { HttpClientTestingModule, HttpTestingController } from '@angular/common/http/testing';
+
+import { NO_ERRORS_SCHEMA } from '@angular/core';
 describe('AppComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
@@ -8,6 +11,8 @@ describe('AppComponent', () => {
         AppComponent,
         CitiesListComponent
       ],
+      imports: [HttpClientTestingModule],
+      schemas: [ NO_ERRORS_SCHEMA ]
     }).compileComponents();
   }));
 
