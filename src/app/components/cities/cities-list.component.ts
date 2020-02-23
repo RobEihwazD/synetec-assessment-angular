@@ -1,5 +1,5 @@
-import { Component, OnInit, OnDestroy } from "@angular/core";
-import { ICity } from "../../models/city.model";
+import { Component, OnInit, OnDestroy } from '@angular/core';
+import { ICity } from '../../models/city.model';
 import { CitiesService } from '../../services/cities/cities.service';
 import { map, takeUntil } from 'rxjs/operators';
 import { Observable, Subject, Subscriber, Subscription } from 'rxjs';
@@ -13,18 +13,15 @@ import { Observable, Subject, Subscriber, Subscription } from 'rxjs';
 export class CitiesListComponent implements OnInit, OnDestroy {
 
     cities: ICity[] = [];
-    message: string;
     private unsubscribe: Subject<boolean> = new Subject<boolean>();
-
     private citySubscriber: Subscription = this.cityService.cityObserver
         .pipe(
             map(result => {
-                this.cities = result as ICity[]
+                this.cities = result as ICity[];
 
             })
         )
         .subscribe();
-
 
 
     constructor(private cityService: CitiesService) { }
@@ -34,9 +31,9 @@ export class CitiesListComponent implements OnInit, OnDestroy {
     }
 
     onDeleteRequest(cityId) {
-        console.log(' delete request ', event)
-        this.cityService.deleteCity(cityId)//left in to show call to server 
-        this.cities = this.cities.filter(obj => obj.id !== cityId)
+
+        this.cityService.deleteCity(cityId); // left in to show call to server
+        this.cities = this.cities.filter(obj => obj.id !== cityId);
     }
 
     ngOnDestroy(): void {

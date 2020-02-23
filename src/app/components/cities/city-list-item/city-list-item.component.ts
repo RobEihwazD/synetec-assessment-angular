@@ -16,9 +16,8 @@ export class CityListItemComponent implements OnInit {
   ngOnInit() {
   }
 
-  handleDelete(){
-    console.log(' handleDelete ')
-    this.deleteRequest.emit(this.city.id)
+  handleDelete() {
+    this.deleteRequest.emit(this.city.id);
   }
 
 }

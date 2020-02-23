@@ -1,6 +1,6 @@
-import { Injectable } from "@angular/core";
+import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
-import { environment } from "../../environments/environment";
+import { environment } from '../../environments/environment';
 import { Observable, of } from 'rxjs';
 import { map, tap } from 'rxjs/operators';
 
@@ -8,13 +8,13 @@ import { map, tap } from 'rxjs/operators';
     providedIn: 'root'
 })
 export class BaseService {
-    
+
     private _baseUrl: string = environment.apiBaseUrl;
 
-    constructor(private httpClient: HttpClient){}
+    constructor(private httpClient: HttpClient) {}
 
     protected getRequestHeaders(): { headers: HttpHeaders | { [header: string]: string | string[]; } } {
-        let headers = new HttpHeaders({
+        const headers = new HttpHeaders({
             'Content-Type': 'application/json',
             'Accept': `application/json, text/plain, */*`,
             'Access-Control-Allow-Origin': '*',
@@ -24,21 +24,21 @@ export class BaseService {
         return { headers: headers };
     }
 
-    protected getBaseUrl() : string {
+    protected getBaseUrl(): string {
         return this._baseUrl;
     }
 
-  
+
   get<T>(endpoint: string): Observable<T> {
-    return this.httpClient.get<T>(this._baseUrl + endpoint)
+    return this.httpClient.get<T>(this._baseUrl + endpoint);
   }
 
   getAll<T>(endpoint: string): Observable<T> {
-    return this.httpClient.get<T>(this._baseUrl + endpoint)
+    return this.httpClient.get<T>(this._baseUrl + endpoint);
   }
 
   delete<T>(endpoint: string): Observable<T> {
-    return this.httpClient.delete<T>(this._baseUrl + endpoint)
+    return this.httpClient.delete<T>(this._baseUrl + endpoint);
   }
 
 }

@@ -1,7 +1,7 @@
-import { Injectable, Injector } from "@angular/core";
-import { environment } from "../../../environments/environment";
-import { BaseService } from "../base.service";
-import { Observable } from "rxjs";
+import { Injectable, Injector } from '@angular/core';
+import { environment } from '../../../environments/environment';
+import { BaseService } from '../base.service';
+import { Observable } from 'rxjs';
 
 import { ICity } from '../../models/city.model';
 
@@ -20,21 +20,21 @@ export class CitiesEndpoint {
             uri += `/${cityId}`;
         }
         return uri;
-    };
+    }
 
     constructor(private api: BaseService) {
 
     }
 
     getCity(cityId: number): Observable<ICity> {
-        return this.api.get(this.endPoint(null, cityId))
+        return this.api.get(this.endPoint(null, cityId));
     }
 
-    getCities() : Observable<ICity[]>{
-        return this.api.getAll(this.endPoint())
+    getCities(): Observable<ICity[]> {
+        return this.api.getAll(this.endPoint());
     }
 
     deleteCity(cityId: number): Observable<ICity> {
-        return this.api.delete(this.endPoint('delete-city',cityId))
+        return this.api.delete(this.endPoint('delete-city', cityId));
     }
 }

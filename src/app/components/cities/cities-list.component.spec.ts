@@ -12,7 +12,7 @@ describe('CitiesListComponent', () => {
   const cityData: ICity[] = [
     { id: 1, description: 'test description one', name: 'city one' },
     { id: 2, description: 'test description two', name: 'city two' }
-  ]
+  ];
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       declarations: [
@@ -22,7 +22,7 @@ describe('CitiesListComponent', () => {
       imports: [HttpClientTestingModule],
       schemas: [NO_ERRORS_SCHEMA]
     }).compileComponents();
-    
+
   }));
 
   beforeEach(() => {
@@ -32,14 +32,14 @@ describe('CitiesListComponent', () => {
     fixture.detectChanges();
   });
   it('should create the cities list component', async(() => {
-   
+
     expect(component).toBeTruthy();
   }));
 
   it('should display a list of 2 cities', async(() => {
     const compiled = fixture.debugElement.nativeElement;
     const nodes = compiled.querySelectorAll('tr');
-    console.log(' nodes length  ', nodes.length)
+    console.log(' nodes length  ', nodes.length);
     expect(nodes.length === 2).toBeTruthy();
   }));
 });
